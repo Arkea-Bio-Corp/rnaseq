@@ -32,7 +32,6 @@ if (params.input) { ch_input = file(params.input) } else { exit 1, 'Input sample
 // Check rRNA databases for sortmerna
 if (params.remove_ribo_rna) {
     ch_ribo_db = Channel.fromPath(params.index_dir, checkIfExists: true)
-    if (ch_ribo_db.isEmpty()) {exit 1, "Directory provided with --index_dir is empty: ${ch_ribo_db.getName()}!"}
 }
 
 // Check if file with list of fastas is provided when running BBSplit
