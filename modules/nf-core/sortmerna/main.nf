@@ -10,6 +10,7 @@ process SORTMERNA {
     input:
     tuple val(meta), path(reads)
     path  fastas
+    path index_dir
 
     output:
     tuple val(meta), path("*non_rRNA.fastq.gz"), emit: reads
@@ -24,10 +25,12 @@ process SORTMERNA {
     def prefix = task.ext.prefix ?: "${meta.id}"
     if (meta.single_end) {
         """
+        ls $index_dir
         sortmerna \\
             ${'--ref '+fastas.join(' --ref ')} \\
             --reads $reads \\
             --threads $task.cpus \\
+            --index 0 \\
             --workdir . \\
             --aligned rRNA_reads \\
             --fastx \\
@@ -44,11 +47,13 @@ process SORTMERNA {
         """
     } else {
         """
+        ls $index_dir
         sortmerna \\
             ${'--ref '+fastas.join(' --ref ')} \\
             --reads ${reads[0]} \\
             --reads ${reads[1]} \\
             --threads $task.cpus \\
+            --index 0 \\
             --workdir . \\
             --aligned rRNA_reads \\
             --fastx \\
