@@ -1,2 +1,2 @@
 sample,fastq_1,fastq_2,strandedness
-mrutest_SE,/home/lholland/rnaseq/localdata/sub_SRR3486591.fastq.gz,,forward
+mrutest_SE,localdata/sub_SRR3486591.fastq.gz,,forward
