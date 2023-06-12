@@ -360,9 +360,10 @@ workflow RNASEQ {
     //
     ch_sortmerna_multiqc = Channel.empty()
     if (params.remove_ribo_rna) {
-
+        ch_smr_fastas = Channel.fromPath(params.silva_reference, checkIfExists: true)
         SORTMERNA (
             ch_filtered_reads,
+            ch_smr_fastas,
             ch_ribo_db
         )
         .reads

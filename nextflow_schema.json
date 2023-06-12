@@ -154,6 +154,12 @@
                     "description": "Location of SILVA database files.",
                     "help_text": "Database constructed from the SILVA 138 fasta file (the 'default' version) provided by sortmerna."
                 },
+                "silva_reference": {
+                    "type": "string",
+                    "format": "directory-path",
+                    "default": "${projectDir}/localdata/silvadb/smr_v4.3_default_db.fasta",
+                    "description": "Direct path to reference SILVA fasta file."
+                },
                 "save_non_ribo_reads": {
                     "type": "boolean",
                     "fa_icon": "fas fa-save",
