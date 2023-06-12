@@ -20,8 +20,8 @@ WorkflowRnaseq.initialise(params, log, valid_params)
 checkPathParamList = [
     params.input, params.multiqc_config,
     params.fasta, params.transcript_fasta, params.additional_fasta,
-    params.gtf, params.gff, params.gene_bed,
-    params.ribo_database_manifest, params.splicesites,
+    params.gtf, params.gff, params.gene_bed, params.index_dir,
+    params.silva_reference, params.splicesites,
     params.star_index, params.hisat2_index, params.rsem_index, params.salmon_index
 ]
 for (param in checkPathParamList) { if (param) { file(param, checkIfExists: true) } }
@@ -32,6 +32,7 @@ if (params.input) { ch_input = file(params.input) } else { exit 1, 'Input sample
 // Check rRNA databases for sortmerna
 if (params.remove_ribo_rna) {
     ch_ribo_db = Channel.fromPath(params.index_dir, checkIfExists: true)
+    ch_smr_fastas = Channel.fromPath(params.silva_reference, checkIfExists: true)
 }
 
 // Check if file with list of fastas is provided when running BBSplit
@@ -360,7 +361,7 @@ workflow RNASEQ {
     //
     ch_sortmerna_multiqc = Channel.empty()
     if (params.remove_ribo_rna) {
-        ch_smr_fastas = Channel.fromPath(params.silva_reference, checkIfExists: true)
+
         SORTMERNA (
             ch_filtered_reads,
             ch_smr_fastas,
