@@ -25,13 +25,13 @@ process SORTMERNA {
     def prefix = task.ext.prefix ?: "${meta.id}"
     if (meta.single_end) {
         """
-        ls $index_dir
         sortmerna \\
             ${'--ref '+fastas.join(' --ref ')} \\
             --reads $reads \\
             --threads $task.cpus \\
             --index 0 \\
             --workdir . \\
+            --idx-dir $index_dir \\
             --aligned rRNA_reads \\
             --fastx \\
             --other non_rRNA_reads \\
@@ -47,7 +47,6 @@ process SORTMERNA {
         """
     } else {
         """
-        ls $index_dir
         sortmerna \\
             ${'--ref '+fastas.join(' --ref ')} \\
             --reads ${reads[0]} \\
@@ -55,6 +54,7 @@ process SORTMERNA {
             --threads $task.cpus \\
             --index 0 \\
             --workdir . \\
+            --idx-dir $index_dir \\
             --aligned rRNA_reads \\
             --fastx \\
             --other non_rRNA_reads \\
