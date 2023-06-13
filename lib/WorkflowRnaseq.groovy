@@ -43,11 +43,6 @@ class WorkflowRnaseq {
             Nextflow.error("Please provide either --bbsplit_fasta_list / --bbsplit_index to run BBSplit.")
         }
 
-        if (params.remove_ribo_rna && !params.ribo_database_manifest) {
-            Nextflow.error("Please provide --ribo_database_manifest to remove ribosomal RNA with SortMeRNA.")
-        }
-
-
         if (params.with_umi && !params.skip_umi_extract) {
             if (!params.umitools_bc_pattern && !params.umitools_bc_pattern2) {
                 Nextflow.error("UMI-tools requires a barcode pattern to extract barcodes from the reads.")

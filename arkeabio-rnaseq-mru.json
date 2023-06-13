@@ -1,0 +1,16 @@
+{
+    "input": "${projectDir}\/localdata\/mru_samplesheet.csv",
+    "outdir": "${projectDir}\/results\/mru",
+    "email": "lholland@arkeabio.com",
+    "multiqc_title": "ArkeaBio RNA-Seq Pipeline for Methanobrevibacter ruminantium M1 transcriptomics study",
+    "remove_ribo_rna": true,
+    "save_non_ribo_reads": true,
+    "fasta": "${projectDir}\/localdata\/genomes\/mru.fasta",
+    "gff": "${projectDir}\/localdata\/genomes\/mru.gff",
+    "save_reference": true,
+    "save_trimmed": true,
+    "pseudo_aligner": "salmon",
+    "skip_alignment": true,
+    "skip_pseudo_alignment": true,
+    "skip_rseqc": true
+}

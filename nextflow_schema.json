@@ -145,14 +145,20 @@
                     "type": "boolean",
                     "fa_icon": "fas fa-trash-alt",
                     "description": "Enable the removal of reads derived from ribosomal RNA using SortMeRNA.",
-                    "help_text": "Any patterns found in the sequences defined by the '--ribo_database_manifest' parameter will be used."
+                    "help_text": "Any patterns found in the sequences defined by the 'index_dir' parameter will be used."
                 },
-                "ribo_database_manifest": {
+                "index_dir": {
                     "type": "string",
-                    "default": "${projectDir}/assets/rrna-db-defaults.txt",
+                    "default": "${projectDir}/localdata/silvadb",
                     "fa_icon": "fas fa-database",
-                    "description": "Text file containing paths to fasta files (one per line) that will be used to create the database for SortMeRNA.",
-                    "help_text": "By default, [rRNA databases](https://github.com/biocore/sortmerna/tree/master/data/rRNA_databases) defined in the SortMeRNA GitHub repo are used. You can see an example in the pipeline Github repository in `assets/rrna-default-dbs.txt`.\nPlease note that commercial/non-academic entities require [`licensing for SILVA`](https://www.arb-silva.de/silva-license-information) for these default databases."
+                    "description": "Location of SILVA database files.",
+                    "help_text": "Database constructed from the SILVA 138 fasta file (the 'default' version) provided by sortmerna."
+                },
+                "silva_reference": {
+                    "type": "string",
+                    "format": "directory-path",
+                    "default": "${projectDir}/localdata/silvadb/smr_v4.3_default_db.fasta",
+                    "description": "Direct path to reference SILVA fasta file."
                 },
                 "save_non_ribo_reads": {
                     "type": "boolean",
