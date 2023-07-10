@@ -14,7 +14,7 @@
     "silva_reference": "\/data\/rnaseq\/silvadb\/smr_v4.3_default_db.fasta",
     "star_index": "\/data\/rnaseq\/indices\/mru/star",
     "salmon_index": "\/data\/rnaseq\/indices\/mru/salmon",
-    "featurecounts_feature_type": "transcript"
+    "featurecounts_feature_type": "transcript",
     "extra_trimgalore_args": "--length 50",
     "save_trimmed": true,
     "pseudo_aligner": "salmon",
