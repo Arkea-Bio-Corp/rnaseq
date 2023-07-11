@@ -1,0 +1,22 @@
+{
+    "max_cpus": 16,
+    "max_memory": "120.GB",
+    "max_time": "6.h",
+    "input": "\/data\/rnaseq\/mru_samplesheet.csv",
+    "outdir": "${projectDir}\/results\/mru",
+    "email": "lholland@arkeabio.com",
+    "multiqc_title": "ArkeaBio RNA-Seq Pipeline for Methanobrevibacter ruminantium M1 transcriptomics study",
+    "remove_ribo_rna": true,
+    "save_non_ribo_reads": true,
+    "fasta": "\/data\/rnaseq\/genomes\/mru.fasta",
+    "gff": "\/data\/rnaseq\/genomes\/mru.gff",
+    "index_dir": "\/data\/rnaseq\/silvadb\/idx",
+    "silva_reference": "\/data\/rnaseq\/silvadb\/smr_v4.3_default_db.fasta",
+    "star_index": "\/data\/rnaseq\/indices\/mru/star",
+    "salmon_index": "\/data\/rnaseq\/indices\/mru/salmon",
+    "featurecounts_feature_type": "transcript",
+    "extra_trimgalore_args": "--length 50",
+    "save_trimmed": true,
+    "pseudo_aligner": "salmon",
+    "skip_rseqc": true
+}
