@@ -31,8 +31,8 @@ if (params.input) { ch_input = file(params.input) } else { exit 1, 'Input sample
 
 // Check rRNA databases for sortmerna
 if (params.remove_ribo_rna) {
-    ch_ribo_db = Channel.fromPath(params.index_dir, checkIfExists: true)
-    ch_smr_fastas = Channel.fromPath(params.silva_reference, checkIfExists: true)
+    ch_ribo_db = Channel.value(file(params.index_dir, checkIfExists: true))
+    ch_smr_fastas = Channel.value(file(params.silva_reference, checkIfExists: true))
 }
 
 // Check if file with list of fastas is provided when running BBSplit
