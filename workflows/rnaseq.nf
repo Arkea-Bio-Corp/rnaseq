@@ -20,8 +20,7 @@ WorkflowRnaseq.initialise(params, log, valid_params)
 checkPathParamList = [
     params.input, params.multiqc_config,
     params.fasta, params.transcript_fasta, params.additional_fasta,
-    params.gtf, params.gff, params.gene_bed, params.index_dir,
-    params.silva_reference, params.splicesites,
+    params.gtf, params.gff, params.gene_bed, params.splicesites,
     params.star_index, params.hisat2_index, params.rsem_index, params.salmon_index
 ]
 for (param in checkPathParamList) { if (param) { file(param, checkIfExists: true) } }
