@@ -38,6 +38,7 @@ process RSEM_PREPAREREFERENCE {
 
         rsem-prepare-reference \\
             --gtf $gtf \\
+            --gff3-RNA-patterns "transcript" \\
             --num-threads $task.cpus \\
             ${args_list.join(' ')} \\
             $fasta \\
@@ -55,6 +56,7 @@ process RSEM_PREPAREREFERENCE {
         """
         rsem-prepare-reference \\
             --gtf $gtf \\
+            --gff3-RNA-patterns "transcript" \\
             --num-threads $task.cpus \\
             $args \\
             $fasta \\
